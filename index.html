@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hassan — Full-Stack & AI Systems Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+  :root{
+    --cream: #fff4e0;
+    --cream-2: #ffe9c2;
+    --orange: #ff8a2b;
+    --orange-2: #ff6b1a;
+    --stripe: #3a2417;
+    --brown: #6b3f24;
+    --brown-dark: #3a2417;
+    --ink: #2b1a10;
+    --ink-soft: #6b5443;
+    --cream-panel: #fffaf0;
+    --font-display: 'Baloo 2', cursive;
+    --font-body: 'Nunito', sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--orange); color:#fff; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:2; }
+
+  .paw-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  }
+  .paw{
+    position:absolute; opacity:.06; color:var(--brown);
+    font-size:46px; transform:rotate(var(--r,0deg));
+  }
+
+  h1,h2,h3{ font-family:var(--font-display); color:var(--stripe); }
+
+  .hero{ padding:90px 0 60px; text-align:center; position:relative; }
+
+  .hero-kicker{
+    font-family:var(--font-display); font-size:15px; color:var(--orange-2);
+    background:#fff; border:2px solid var(--stripe); display:inline-flex; align-items:center; gap:8px;
+    padding:7px 16px; border-radius:40px; margin-bottom:24px;
+    box-shadow:3px 3px 0 var(--stripe);
+  }
+
+  .hero h1{
+    font-size:clamp(36px, 7vw, 72px);
+    font-weight:800; line-height:1.06;
+  }
+  .hero h1 .accent{ color:var(--orange-2); position:relative; display:inline-block; }
+  .hero h1 .accent::after{
+    content:'';
+    position:absolute; left:-4px; right:-4px; bottom:2px; height:14px;
+    background:var(--cream-2); z-index:-1; transform:skewX(-6deg);
+  }
+
+  .hero-sub{
+    max-width:620px; margin:22px auto 0; font-size:17px; color:var(--ink-soft); font-weight:500;
+  }
+  .hero-sub b{ color:var(--stripe); font-weight:800; }
+
+  .hero-cta{ display:flex; gap:16px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--font-display); font-size:16px; font-weight:600;
+    padding:13px 26px; border-radius:40px; cursor:pointer;
+    border:2px solid var(--stripe); display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:4px 4px 0 var(--stripe);
+  }
+  .btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--stripe); }
+  .btn:active{ transform:translate(1px,1px); box-shadow:2px 2px 0 var(--stripe); }
+  .btn-primary{ background:var(--orange); color:#fff; }
+  .btn-ghost{ background:#fff; color:var(--stripe); }
+
+  .stat-row{
+    margin-top:60px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
+  }
+  .stat-card{
+    background:var(--cream-panel); border:2px solid var(--stripe); border-radius:16px;
+    padding:18px 24px; min-width:150px; text-align:center;
+    box-shadow:4px 4px 0 var(--stripe);
+  }
+  .stat-num{ font-family:var(--font-display); font-size:28px; font-weight:800; color:var(--orange-2); }
+  .stat-label{ font-size:12.5px; color:var(--ink-soft); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-top:4px; }
+
+  section{ padding:80px 0; }
+  .section-head{ text-align:center; margin-bottom:44px; }
+  .section-tag{
+    font-family:var(--font-display); font-size:13.5px; color:var(--orange-2);
+    background:var(--cream-2); border:2px solid var(--stripe); display:inline-block;
+    padding:5px 14px; border-radius:30px; margin-bottom:12px;
+  }
+  .section-title{ font-size:32px; font-weight:800; }
+
+  .exp-card{
+    background:var(--cream-panel); border:2px solid var(--stripe); border-radius:18px;
+    padding:26px 30px; margin-bottom:22px; position:relative; overflow:hidden;
+    box-shadow:5px 5px 0 var(--stripe);
+  }
+  .exp-card::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:10px;
+    background:repeating-linear-gradient(180deg, var(--orange) 0 10px, var(--stripe) 10px 14px);
+  }
+  .exp-head{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start; padding-left:14px; }
+  .exp-title{ font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--stripe); }
+  .exp-org{ font-size:14px; color:var(--ink-soft); font-weight:600; margin-top:2px; }
+  .exp-meta{ text-align:right; }
+  .exp-time{ font-size:13px; font-weight:700; color:var(--ink-soft); }
+  .exp-badge{
+    display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:800;
+    padding:4px 10px; border-radius:20px; margin-top:6px; font-family:var(--font-body);
+  }
+  .exp-badge.now{ background:#fff0e2; color:var(--orange-2); border:1.5px solid var(--orange-2); }
+  .exp-badge.done{ background:#f2ede4; color:var(--ink-soft); border:1.5px solid var(--ink-soft); }
+  .exp-badge .d{ width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .exp-badge.now .d{ animation:pulse 1.6s infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+
+  .exp-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; padding-left:14px; }
+  .tag{
+    font-size:12.5px; font-weight:700; color:var(--stripe);
+    background:var(--cream-2); border:1.5px solid var(--stripe); padding:4px 11px; border-radius:20px;
+  }
+
+  .proj-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:760px){ .proj-grid{ grid-template-columns:1fr; } }
+  .proj-card{
+    background:var(--cream-panel); border:2px solid var(--stripe); border-radius:18px;
+    padding:26px; display:flex; flex-direction:column; gap:12px;
+    box-shadow:5px 5px 0 var(--stripe);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .proj-card:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--stripe); }
+  .proj-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .proj-name{ font-family:var(--font-display); font-weight:700; font-size:18px; color:var(--stripe); }
+  .proj-year{ font-size:12px; font-weight:700; color:var(--ink-soft); background:var(--cream-2); padding:3px 9px; border-radius:20px; white-space:nowrap; }
+  .proj-desc{ color:var(--ink-soft); font-size:14.5px; font-weight:500; }
+  .proj-stack{ display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; }
+  .proj-link{ margin-top:6px; font-weight:800; font-size:13.5px; color:var(--orange-2); display:inline-flex; align-items:center; gap:6px; }
+  .proj-link:hover{ text-decoration:underline; }
+  .projects-github{ text-align:center; margin-top:34px; }
+
+  .skill-groups{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+  @media (max-width:860px){ .skill-groups{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .skill-groups{ grid-template-columns:1fr; } }
+  .skill-group{
+    background:var(--cream-panel); border:2px solid var(--stripe); border-radius:18px;
+    padding:22px 24px; box-shadow:5px 5px 0 var(--stripe);
+  }
+  .skill-group-title{
+    font-family:var(--font-display); font-size:16px; color:var(--orange-2); margin-bottom:14px;
+    display:flex; align-items:center; gap:8px;
+  }
+
+  .icon-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:12px;
+  }
+  .icon-card{
+    border:2px solid var(--stripe);
+    background:linear-gradient(180deg, #fff, var(--cream-panel));
+    border-radius:16px;
+    padding:14px 12px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:92px;
+    box-shadow:3px 3px 0 var(--stripe);
+    text-align:center;
+  }
+  .icon-card i{ font-size:32px; color:var(--orange-2); }
+  .icon-card .devicon{ font-size:32px; line-height:1; }
+  .icon-label{ font-size:12px; font-weight:800; color:var(--stripe); line-height:1.2; }
+
+  .contact{ text-align:center; }
+  .contact-panel{
+    background:var(--cream-panel); border:3px solid var(--stripe); border-radius:24px;
+    padding:60px 36px; box-shadow:8px 8px 0 var(--stripe); position:relative;
+  }
+  .contact h2{ font-size:clamp(28px,4vw,42px); }
+  .contact p{ color:var(--ink-soft); max-width:440px; margin:16px auto 32px; font-size:15.5px; font-weight:600; }
+  .contact-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  footer{ padding:34px 0; text-align:center; }
+  footer span{ font-family:var(--font-display); font-size:13px; color:var(--ink-soft); }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ transition:none; opacity:1; transform:none; }
+    .exp-badge.now .d{ animation:none; }
+  }
+
+  a:focus-visible, button:focus-visible{ outline:3px solid var(--orange-2); outline-offset:2px; }
+
+  @media (max-width:540px){
+    .hero{ padding:60px 0 40px; }
+    .hero-cta{ flex-direction:column; align-items:center; }
+    .icon-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="paw-bg" id="pawBg"></div>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="hero-kicker">Umm, Hi! :)</div>
+    <h1>I build software<br>with strong opinions,<br><span class="accent">clean APIs</span>, and a mild distrust of Mondays.</h1>
+    <p class="hero-sub">
+      I'm <b>Hassan</b> — a full-stack &amp; AI systems engineer who ships production APIs, wires ML models into real products, and keeps the whole thing running with a little sarcasm and a lot of caffeine.
+    </p>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-tag">Where I work?</div>
+      <h2 class="section-title">Experience</h2>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-head">
+        <div>
+          <div class="exp-title">Full Stack Developer Intern</div>
+          <div class="exp-org">Smallfare Services Pvt. Ltd. — Hyderabad, India</div>
+        </div>
+        <div class="exp-meta">
+          <div class="exp-time">Feb 2026 — Present</div>
+          <div class="exp-badge now"><span class="d"></span> active</div>
+        </div>
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+        <span class="tag">Cassandra</span><span class="tag">RAG</span><span class="tag">WebSockets</span>
+        <span class="tag">AWS OpenSearch</span><span class="tag">JWT</span><span class="tag">Vercel</span>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-head">
+        <div>
+          <div class="exp-title">Backend Developer Intern</div>
+          <div class="exp-org">Smallfare Services Pvt. Ltd. — Hyderabad, India</div>
+        </div>
+        <div class="exp-meta">
+          <div class="exp-time">Jun 2025 — Feb 2026</div>
+          <div class="exp-badge done"><span class="d"></span> wrapped up</div>
+        </div>
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Node.js</span><span class="tag">Kafka</span><span class="tag">Debezium</span>
+        <span class="tag">Redis</span><span class="tag">AWS RDS</span><span class="tag">S3</span><span class="tag">EC2</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head">
+      <div class="section-tag">Side quests</div>
+      <h2 class="section-title">Projects</h2>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">Content Recommendation System</div>
+          <span class="proj-year">2025</span>
+        </div>
+        <p class="proj-desc">Recommendation engine using Thompson Sampling &amp; Epsilon-Greedy multi-armed bandits, with real-time interaction tracking via the YouTube Data API.</p>
+        <div class="proj-stack">
+          <span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">NeonDB</span><span class="tag">RL</span>
+        </div>
+        <a class="proj-link" href="https://github.com/hasss04/Content-Recommendation-System-using-MAB" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">Medical Chatbot</div>
+          <span class="proj-year">2024</span>
+        </div>
+        <p class="proj-desc">ML-based symptom prediction chatbot using SVM, Naive Bayes, and Random Forest, with secure login and a personalized "Health Tips" dashboard.</p>
+        <div class="proj-stack">
+          <span class="tag">RASA</span><span class="tag">Python</span><span class="tag">MongoDB</span>
+        </div>
+        <a class="proj-link" href="https://github.com/hasss04" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">AI Resume Maker</div>
+          <span class="proj-year">GitHub</span>
+        </div>
+        <p class="proj-desc">AI-powered resume analysis and ATS optimization tool that scores and rewrites resumes against target job descriptions.</p>
+        <div class="proj-stack">
+          <span class="tag">HTML</span><span class="tag">ATS</span>
+        </div>
+        <a class="proj-link" href="https://github.com/hasss04/ai-resume-maker" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">Frontend Projects</div>
+          <span class="proj-year">GitHub</span>
+        </div>
+        <p class="proj-desc">A collection of smaller frontend builds and experiments, kept in one repo.</p>
+        <div class="proj-stack">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+        </div>
+        <a class="proj-link" href="https://github.com/hasss04/frontend-projects" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="projects-github">
+      <a href="https://github.com/hasss04" target="_blank" rel="noopener" class="btn btn-ghost">See all repos on GitHub</a>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-head">
+      <div class="section-tag">The toolbox</div>
+      <h2 class="section-title">Stack</h2>
+    </div>
+
+    <div class="skill-groups">
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Languages</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-python-plain colored"></i><div class="icon-label">Python</div></div>
+          <div class="icon-card"><i class="devicon-javascript-plain colored"></i><div class="icon-label">JavaScript</div></div>
+          <div class="icon-card"><i class="devicon-c-plain colored"></i><div class="icon-label">C</div></div>
+          <div class="icon-card"><i class="devicon-cplusplus-plain colored"></i><div class="icon-label">C++</div></div>
+          <div class="icon-card"><i class="devicon-java-plain colored"></i><div class="icon-label">Java</div></div>
+          <div class="icon-card"><i class="fa-solid fa-database"></i><div class="icon-label">SQL</div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Frontend</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-nextjs-plain"></i><div class="icon-label">Next.js</div></div>
+          <div class="icon-card"><i class="devicon-react-original colored"></i><div class="icon-label">React.js</div></div>
+          <div class="icon-card"><i class="devicon-streamlit-plain colored"></i><div class="icon-label">Streamlit</div></div>
+          <div class="icon-card"><i class="fa-solid fa-code"></i><div class="icon-label">HTML/CSS</div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Backend</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-nodejs-plain colored"></i><div class="icon-label">Node.js</div></div>
+          <div class="icon-card"><i class="devicon-fastapi-plain colored"></i><div class="icon-label">FastAPI</div></div>
+          <div class="icon-card"><i class="devicon-flask-original colored"></i><div class="icon-label">Flask</div></div>
+          <div class="icon-card"><i class="devicon-django-plain colored"></i><div class="icon-label">Django</div></div>
+          <div class="icon-card"><i class="fa-solid fa-robot"></i><div class="icon-label">RASA</div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Databases</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-postgresql-plain colored"></i><div class="icon-label">PostgreSQL</div></div>
+          <div class="icon-card"><i class="devicon-apachecassandra-plain colored"></i><div class="icon-label">Cassandra</div></div>
+          <div class="icon-card"><i class="devicon-mongodb-plain colored"></i><div class="icon-label">MongoDB</div></div>
+          <div class="icon-card"><i class="devicon-mysql-plain colored"></i><div class="icon-label">MySQL</div></div>
+          <div class="icon-card"><i class="devicon-redis-plain colored"></i><div class="icon-label">Redis</div></div>
+          <div class="icon-card"><i class="fa-solid fa-fire"></i><div class="icon-label">Firebase</div></div>
+          <div class="icon-card"><i class="fa-solid fa-magnifying-glass-chart"></i><div class="icon-label">AWS OpenSearch</div></div>
+          <div class="icon-card"><i class="fa-solid fa-brain"></i><div class="icon-label">ChromaDB</div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">AI/ML & GenAI</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-pytorch-original colored"></i><div class="icon-label">PyTorch</div></div>
+          <div class="icon-card"><i class="devicon-tensorflow-original colored"></i><div class="icon-label">TensorFlow</div></div>
+          <div class="icon-card"><i class="fa-solid fa-brain"></i><div class="icon-label">Scikit-learn</div></div>
+          <div class="icon-card"><i class="fa-solid fa-link"></i><div class="icon-label">LangChain</div></div>
+          <div class="icon-card"><i class="fa-solid fa-face-smile"></i><div class="icon-label">Hugging Face</div></div>
+          <div class="icon-card"><i class="fa-solid fa-wand-magic-sparkles"></i><div class="icon-label">OpenAI API</div></div>
+          <div class="icon-card"><i class="fa-solid fa-diagram-project"></i><div class="icon-label">RAG</div></div>
+          <div class="icon-card"><i class="fa-solid fa-pen-nib"></i><div class="icon-label">Prompt Eng.</div></div>
+          <div class="icon-card"><i class="fa-solid fa-eye"></i><div class="icon-label">NLP</div></div>
+          <div class="icon-card"><i class="fa-solid fa-image"></i><div class="icon-label">Computer Vision</div></div>
+          <div class="icon-card"><i class="fa-solid fa-arrow-trend-up"></i><div class="icon-label">Reinforcement Learning</div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">DevOps & Cloud</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-amazonwebservices-plain-wordmark colored"></i><div class="icon-label">AWS</div></div>
+          <div class="icon-card"><i class="fa-solid fa-database"></i><div class="icon-label">RDS</div></div>
+          <div class="icon-card"><i class="fa-solid fa-box-archive"></i><div class="icon-label">S3</div></div>
+          <div class="icon-card"><i class="fa-solid fa-server"></i><div class="icon-label">EC2</div></div>
+          <div class="icon-card"><i class="fa-solid fa-magnifying-glass-chart"></i><div class="icon-label">OpenSearch</div></div>
+          <div class="icon-card"><i class="devicon-docker-plain colored"></i><div class="icon-label">Docker</div></div>
+          <div class="icon-card"><i class="devicon-githubactions-plain colored"></i><div class="icon-label">GitHub Actions</div></div>
+          <div class="icon-card"><i class="devicon-vercel-original"></i><div class="icon-label">Vercel</div></div>
+          <div class="icon-card"><i class="fa-solid fa-stream"></i><div class="icon-label">Kafka</div></div>
+          <div class="icon-card"><i class="fa-solid fa-code-branch"></i><div class="icon-label">Debezium</div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Tools</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="devicon-vscode-plain colored"></i><div class="icon-label">VS Code</div></div>
+          <div class="icon-card"><i class="devicon-postman-plain colored"></i><div class="icon-label">Postman</div></div>
+          <div class="icon-card"><i class="devicon-git-plain colored"></i><div class="icon-label">Git</div></div>
+          <div class="icon-card"><i class="devicon-linux-plain"></i><div class="icon-label">Linux</div></div>
+          <div class="icon-card"><i class="devicon-jupyter-plain colored"></i><div class="icon-label">Jupyter</div></div>
+          <div class="icon-card"><i class="fa-solid fa-compass-drafting"></i><div class="icon-label">Figma</div></div>
+        </div>
+      </div>
+        <div class="skill-group reveal">
+        <div class="skill-group-title">Currently exploring</div>
+        <div class="icon-grid">
+          <div class="icon-card"><i class="fa-solid fa-user-secret"></i><div class="icon-label">Digital Forensics</div></div>
+          <div class="icon-card"><i class="fa-solid fa-heart-pulse"></i><div class="icon-label">Healthcare Tech</div></div>
+          <div class="icon-card"><i class="fa-solid fa-network-wired"></i><div class="icon-label">Distributed Systems</div></div>
+          <div class="icon-card"><i class="fa-solid fa-tower-broadcast"></i><div class="icon-label">Telecom</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact reveal">
+      <div class="contact-panel">
+        <h2>Got something to build?</h2>
+        <p>Open to freelance work, project collaborations, and full-time roles — preferably the kind where the code behaves and the deadlines do not.</p>
+        <div class="contact-actions">
+          <a href="mailto:hassan_a22@outlook.com" class="btn btn-primary">Email Me!</a>
+          <a href="https://linkedin.com/in/hassan290904" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+          <a href="https://github.com/hasss04" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>SelfMade — with just enough sarcasm to keep the stack warm</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el=> obs.observe(el));
+
+  const pawBg = document.getElementById('pawBg');
+  const positions = [[5,8],[85,15],[15,42],[70,55],[40,75],[92,80],[25,90],[60,25],[8,65],[50,10]];
+  positions.forEach(([x,y])=>{
+    const p = document.createElement('div');
+    p.className = 'paw';
+    p.textContent = '🐾';
+    p.style.left = x + '%';
+    p.style.top = y + '%';
+    p.style.setProperty('--r', (Math.random()*60-30) + 'deg');
+    pawBg.appendChild(p);
+  });
+</script>
+
+</body>
+</html>
