@@ -243,10 +243,17 @@
   .proj-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
   .proj-name{ font-family:var(--font-display); font-weight:700; font-size:18px; color:var(--stripe); }
   .proj-year{ font-size:12px; font-weight:700; color:var(--ink-soft); background:var(--cream-2); padding:3px 9px; border-radius:20px; white-space:nowrap; }
-  .proj-desc{ color:var(--ink-soft); font-size:14.5px; font-weight:500; }
-  .proj-stack{ display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; }
+  .proj-desc{ color:var(--ink-soft); font-size:14.5px; font-weight:500; line-height:1.5; }
+  .proj-stack{ display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:8px; }
+  
+  .proj-links{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:8px;
+    flex-wrap:wrap;
+  }
   .proj-link{
-    margin-top:6px;
     font-weight:800;
     font-size:13.5px;
     color:var(--orange-2);
@@ -434,7 +441,7 @@
     <div class="hero-kicker">Umm, Hi! :)</div>
     <h1>I build software<br>with strong opinions,<br><span class="accent">clean APIs</span>, and a mild distrust of Mondays.</h1>
     <p class="hero-sub">
-     I'm <b>Hassan</b>, a full-stack &amp; AI systems engineer who builds production-ready products and turns ideas into working systems.
+      I'm <b>Hassan</b>, a full-stack &amp; AI systems engineer who builds production-ready products and turns ideas into working systems.
     </p>
 
     <div class="hero-cta">
@@ -492,52 +499,65 @@
     </div>
 
     <div class="proj-grid">
+      <!-- TempChat -->
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">TempChat</div>
+          <span class="proj-year">GitHub</span>
+        </div>
+        <p class="proj-desc">P2P encrypted, self-destructing text, voice, and video chat PWA. Zero database persistence with in-memory signaling, client-side AES-GCM encryption, and PBKDF2 key derivation.</p>
+        <div class="proj-stack">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">WebRTC</span><span class="tag">Netlify Blobs</span><span class="tag">AES-GCM</span><span class="tag">IndexedDB</span><span class="tag">Zustand</span><span class="tag">PWA</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://temp-chat-webrtc.netlify.app" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          <a class="proj-link" href="https://github.com/hasss04/temp-chat" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+
+      <!-- Content Recommendation System -->
       <div class="proj-card reveal">
         <div class="proj-top">
           <div class="proj-name">Content Recommendation System</div>
-          <span class="proj-year">Github</span>
+          <span class="proj-year">GitHub</span>
         </div>
-        <p class="proj-desc">Recommendation engine using Thompson Sampling &amp; Epsilon-Greedy multi-armed bandits, with real-time interaction tracking via the YouTube Data API.</p>
+        <p class="proj-desc">Adaptive recommendation engine leveraging Thompson Sampling (Bayesian Beta distributions) &amp; Epsilon-Greedy multi-armed bandits to solve cold start with real-time feedback loops.</p>
         <div class="proj-stack">
-          <span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">NeonDB</span><span class="tag">RL</span>
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Reinforcement Learning</span><span class="tag">Thompson Sampling</span><span class="tag">Streamlit</span><span class="tag">NeonDB (PostgreSQL)</span><span class="tag">YouTube API v3</span>
         </div>
-        <a class="proj-link" href="https://github.com/hasss04/Content-Recommendation-System-using-MAB" target="_blank" rel="noopener">View on GitHub</a>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/hasss04/Content-Recommendation-System-using-MAB" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
       </div>
 
+      <!-- AI Resume Maker -->
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">AI Resume Analyzer &amp; ATS Engine</div>
+          <span class="proj-year">GitHub</span>
+        </div>
+        <p class="proj-desc">Explainable NLP-driven ATS scoring platform featuring TF-IDF vectorization, BM25 ranking, and Jaccard similarity to quantify job fit and recommend optimized bullet points.</p>
+        <div class="proj-stack">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Scikit-Learn</span><span class="tag">TF-IDF</span><span class="tag">BM25</span><span class="tag">Cosine Similarity</span><span class="tag">RapidFuzz</span><span class="tag">NLP</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/hasss04/ai-resume-maker" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+
+      <!-- Medical Chatbot -->
       <div class="proj-card reveal">
         <div class="proj-top">
           <div class="proj-name">Medical Chatbot</div>
           <span class="proj-year">2024</span>
         </div>
-        <p class="proj-desc">ML-based symptom prediction chatbot using SVM, Naive Bayes, and Random Forest, with secure login and a personalized "Health Tips" dashboard.</p>
+        <p class="proj-desc">ML-based symptom prediction conversational agent combining SVM, Naive Bayes, and Random Forest classifiers with conversational dialogue management and health dashboards.</p>
         <div class="proj-stack">
-          <span class="tag">RASA</span><span class="tag">Python</span><span class="tag">MongoDB</span>
+          <span class="tag">RASA NLU</span><span class="tag">Python</span><span class="tag">Scikit-Learn</span><span class="tag">SVM</span><span class="tag">Random Forest</span><span class="tag">MongoDB</span>
         </div>
-        <a class="proj-link" href="https://github.com/hasss04" target="_blank" rel="noopener">View on GitHub</a>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <div class="proj-name">AI Resume Maker</div>
-          <span class="proj-year">GitHub</span>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/hasss04" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <p class="proj-desc">AI-powered resume analysis and ATS optimization tool that scores and rewrites resumes against target job descriptions.</p>
-        <div class="proj-stack">
-          <span class="tag">HTML</span><span class="tag">ATS</span>
-        </div>
-        <a class="proj-link" href="https://github.com/hasss04/ai-resume-maker" target="_blank" rel="noopener">View on GitHub</a>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <div class="proj-name">temp-chat</div>
-          <span class="proj-year">GitHub</span>
-        </div>
-        <p class="proj-desc">Encrypted, Self-Destructing WebRTC-based Chat.</p>
-        <div class="proj-stack">
-          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
-        </div>
-        <a class="proj-link" href="https://github.com/hasss04/temp-chat" target="_blank" rel="noopener">View on GitHub</a>
       </div>
     </div>
 
